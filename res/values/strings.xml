@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TipCalc</string>
+    <string name="sTotalTip">Total Tip</string>
+    <string name="sDefaultAmt">0</string>
+    <string name="sTipPercent">Tip Percentage</string>
+    <string name="sTotalAmt">Total Bill</string>
+    <string name="sTipPerPerson">Tip Per Person</string>
+    <string name="sBillAmt">Bill Amount</string>
+    <string name="sTotalPerPerson">Total Per Person</string>
+    <string name="sNumPeople">Number of People</string>
+    <string name="sDefaultTip">18</string>
+    <string name="sDefaultNumPeople">1</string>
+
+</resources>
