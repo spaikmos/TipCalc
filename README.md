@@ -14,13 +14,16 @@ Completed user stories:
  * [x] Optional: User can select custom tip percentage if desired
  * [x] Optional: User can select how many ways to split the tip
  * [ ] Optional: User can edit preset tip percentages and have them persist across launches
- * [ ] Optional: Experiment with trying input widgets to replace the buttons and/or textviews
+ * [x] Optional: Experiment with trying input widgets to replace the buttons and/or textviews
  * [ ] Optional: Improve the user interface and experience by using images and/or colors
 
 Notes:
 
 Decided to change the dollar sign icon after initial project creation.  Wasn't
 as bad as I thought it would be.
+
+Added gesture detection to allow user to increment / decrement number of people
+to split the bill by swiping left/right.
 
 Spent some time trying the number picker widget, but couldn't get it to work
 properly.  Arrows never showed up in the emulator nor on a real device.
@@ -43,10 +46,6 @@ depending on what combination of bills and pocket change he has.
 
 Furthermore, the tip table could highlight the range between 15% and 20% to
 show the user what a typically socially acceptable tip is.
-
-To calculate splits, we could use left/right gestures to increment / decrement
-the number of parties to split by.  This would be much simpler than entering
-a number via the edit text view.
 
 Finally, we could add a persistent database that keeps track of history.  User
 would input the establishment that he visited, and the app would record a 

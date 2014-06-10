@@ -8,9 +8,9 @@
         android:id="@+id/etBillAmt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/etTipPercent"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView3"
         android:ems="10"
         android:inputType="numberDecimal" >
 
@@ -39,7 +39,7 @@
         android:id="@+id/etTipPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/etNumPeople"
+        android:layout_alignLeft="@+id/etBillAmt"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/etBillAmt"
         android:ems="10"
@@ -118,17 +118,6 @@
         android:text="@string/sDefaultAmt"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
-        android:id="@+id/etNumPeople"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/etTipPercent"
-        android:layout_toRightOf="@+id/textView3"
-        android:ems="10"
-        android:inputType="number"
-        android:text="@string/sDefaultNumPeople" />
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -137,5 +126,16 @@
         android:layout_below="@+id/etTipPercent"
         android:text="@string/sNumPeople"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/etNumPeople"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignLeft="@+id/etTipPercent"
+        android:ems="10"
+        android:inputType="number"
+        android:text="@string/sDefaultNumPeople" />
 
 </RelativeLayout>
