@@ -22,120 +22,138 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/sBillAmt"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/etBillAmt"
-        android:text="@string/sTipPercent"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/etTipPercent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/etBillAmt"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/etBillAmt"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="@string/sDefaultTip" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:text="@string/sTotalPerPerson"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView5"
-        android:layout_alignParentLeft="true"
-        android:text="@string/sTotalAmt"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView4"
-        android:layout_alignParentLeft="true"
-        android:text="@string/sTipPerPerson"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView7"
-        android:layout_alignParentLeft="true"
-        android:text="@string/sTotalTip"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/tvTotalPerPerson"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/sDefaultAmt"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/tvTipPerPerson"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tvTotalPerPerson"
-        android:layout_alignParentRight="true"
-        android:text="@string/sDefaultAmt"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/tvTotalBill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tvTipPerPerson"
-        android:layout_alignParentRight="true"
-        android:text="@string/sDefaultAmt"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/tvTotalTip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tvTotalBill"
-        android:layout_alignParentRight="true"
-        android:text="@string/sDefaultAmt"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_alignBaseline="@+id/etBillAmt"
+        android:text="@string/sBillAmt" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/etTipPercent"
-        android:text="@string/sNumPeople"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_alignBaseline="@+id/etNumPeople"
+        android:text="@string/sNumPeople" />
 
     <EditText
         android:id="@+id/etNumPeople"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView3"
-        android:layout_alignBottom="@+id/textView3"
-        android:layout_alignLeft="@+id/etTipPercent"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_below="@+id/etBillAmt"
         android:ems="10"
         android:inputType="number"
         android:text="@string/sDefaultNumPeople" />
 
+   <LinearLayout
+        android:id="@+id/ll1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/etNumPeople" >
+
+	    <TextView
+	        android:id="@+id/textView8"
+	        android:layout_width="0px"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1" />
+	    
+	    <TextView
+	        android:id="@+id/textView9"
+	        android:layout_width="0px"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="4"
+	        android:text="Per Person" />
+	    
+	    <TextView
+	        android:id="@+id/textView10"
+	        android:layout_width="0px"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="4"
+	        android:text="Total Bill" />
+	</LinearLayout>
+        
+    <LinearLayout
+        android:id="@+id/ll2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll1" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="%" />
+        
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Tip" />
+        
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Bill" />
+        
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Tip" />
+        
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Bill" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll2" >
+        
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+	
+	        <TextView
+	            android:id="@+id/tvPercent"
+	            android:layout_width="0px"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1" />
+
+	        <TextView
+	            android:id="@+id/tvTipPerson"
+	            android:layout_width="0px"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="2" />
+
+	        <TextView
+	            android:id="@+id/tvBillPerson"
+	            android:layout_width="0px"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="2" />
+
+	        <TextView
+	            android:id="@+id/tvTipTotal"
+	            android:layout_width="0px"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="2" />
+
+	        <TextView
+	            android:id="@+id/tvBillTotal"
+	            android:layout_width="0px"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="2" />
+
+		</LinearLayout>
+        
+    </ScrollView>
+    
 </RelativeLayout>

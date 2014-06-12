@@ -2,7 +2,7 @@
 
 This is a basic tip calculator.
 
-Time spent:  6 hours total.
+Time spent:  12 hours total.
 
 Completed user stories:
 
@@ -17,7 +17,15 @@ Completed user stories:
  * [x] Optional: Experiment with trying input widgets to replace the buttons and/or textviews
  * [ ] Optional: Improve the user interface and experience by using images and/or colors
 
-Notes:
+Release Notes:
+
+TipCalc generates a table of tip percentages.  I found this
+a better user experience than entering an exact percentage.  I rarely tip 
+EXACTLY 15%.  Instead, I round the total amount based on the cash in my 
+pocket (i.e. $20 bills) or to the nearest dollar amount.  Being able to 
+quickly guesstimate the tip in the right ballpark is valuable to me.
+
+Implementation Notes:
 
 Decided to change the dollar sign icon after initial project creation.  Wasn't
 as bad as I thought it would be.
@@ -25,33 +33,26 @@ as bad as I thought it would be.
 Added gesture detection to allow user to increment / decrement number of people
 to split the bill by swiping left/right.
 
-Spent some time trying the number picker widget, but couldn't get it to work
+Spent time trying the number picker widget, but couldn't get it to work
 properly.  Arrows never showed up in the emulator nor on a real device.
+Decided to punt this and use gesture + EditText for number of people.
 
 Tried changing the layout to add some margins to the border of the screen, but
 that totally messed things up.  Decided to revert and live with a crappy UI.
 
+Wrestled a lot with graphical layout.  Decided to edit XML directly to get the
+layout elements that I wanted.
+
 
 Todo:
 
-The UI could be greatly simplified, requiring only a single input (bill amount)
-from the user.  From this input, a table of tips from 1% - 25% could be 
-generated automatically, allowing the user to choose the tip he wishes.  This
-is especially useful because it would allow the user to round up/down the tip
-amount, and guesstimate how much the actual tip is.  
-
-For instance, let's say user's bill is $8, and he sees that a 15% tip brings
-the total to $9.20.  He can decide whether to leave $9, $9.50, $10.00, etc 
-depending on what combination of bills and pocket change he has.
-
-Furthermore, the tip table could highlight the range between 15% and 20% to
-show the user what a typically socially acceptable tip is.
-
-Finally, we could add a persistent database that keeps track of history.  User
-would input the establishment that he visited, and the app would record a 
-timestamp, bill amount, selected tip, etc.  User could then use a drop down
-menu when entering the establishment to pick a recently used one or a new one,
-and he could download the data to a google sheets document.
+* Add margin to the outline of parent.  Text is bumping against borders
+* Center the "Per Person" and "Total Bill" text views 
+* Right justify columns with dollar amounts
+* Highlight rows for 15% and 20% to show standard tips - requires multiple textviews to highlight different rows, or perhaps a table layout
+* Add images and UI "magic" to make the app look better.
+* Allow user to input location name.  Save location + bill amount in a persistent database so user can download to Google sheet
+* Deal with corner cases involving large bills amounts (greater than $800k), or large numbers of people (i.e. 1000 people splitting a small bill might show 0 tip)
 
 Walkthrough of all user stories:
 

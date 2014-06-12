@@ -22,7 +22,6 @@ public class MainActivity extends Activity {
 		gDetect = new GestureDetectorCompat(this, new GestureListener());
 		
 		setupEditTextListener((EditText)findViewById(R.id.etBillAmt));
-		setupEditTextListener((EditText)findViewById(R.id.etTipPercent));
 		setupEditTextListener((EditText)findViewById(R.id.etNumPeople));
 	}
 	
@@ -31,6 +30,14 @@ public class MainActivity extends Activity {
 		this.gDetect.onTouchEvent(event);
 		return super.onTouchEvent(event);
 	}
+	
+	// Need to add this to detect gestures in scrollview
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent ev){
+	    super.dispatchTouchEvent(ev);    
+	    return gDetect.onTouchEvent(ev); 
+	}
+
 	
 	private void setupEditTextListener(EditText etValue)
 	{
@@ -67,45 +74,39 @@ public class MainActivity extends Activity {
 			billAmtF = 0;
 		}
 		
-		// Get the tip percentage
-		EditText tipPercentEt = (EditText) findViewById(R.id.etTipPercent);
-		float tipPercent;
-		
-		// Make sure tip percentage is valid.  Otherwise set to 0.
-		try {
-			tipPercent = Float.parseFloat(tipPercentEt.getText().toString()) / 100;
-		} catch (NumberFormatException e) {
-			tipPercent = 0;
-		}
-		
-		// Get the number of people.  Otherwise set to 1.
+		// Get the number of people.
 		EditText numPeopleEt = (EditText) findViewById(R.id.etNumPeople);
 		int numPeople;
 		
-		// Make sure number of people is valid.  Otherwise set to 0.
+		// Make sure number of people is valid.  Otherwise set to 1.
 		try {
 			numPeople = Integer.parseInt(numPeopleEt.getText().toString());
 		} catch (NumberFormatException e) {
 			numPeople = 1;
 		}
 		
-		float totalTipF = billAmtF * tipPercent;
-		float totalBillF = billAmtF + totalTipF;
-		float tipPerPersonF = totalTipF / numPeople;
-		float totalPerPersonF = totalBillF / numPeople;
+		TextView tvPercent = (TextView)findViewById(R.id.tvPercent);
+		TextView tvTipPerson = (TextView)findViewById(R.id.tvTipPerson);
+		TextView tvBillPerson = (TextView)findViewById(R.id.tvBillPerson);
+		TextView tvTipTotal = (TextView)findViewById(R.id.tvTipTotal);
+		TextView tvBillTotal = (TextView)findViewById(R.id.tvBillTotal);
+		
+		// Clear the text views
+		tvPercent.setText("");
+		tvTipPerson.setText("");
+		tvBillPerson.setText("");
+		tvTipTotal.setText("");
+		tvBillTotal.setText("");
 		
 		// Generate the output
-		TextView t = (TextView)findViewById(R.id.tvTotalTip);
-		t.setText(String.format("%.2f", totalTipF));
-		
-		t = (TextView)findViewById(R.id.tvTotalBill);
-		t.setText(String.format("%.2f",  totalBillF));
-		
-		t = (TextView)findViewById(R.id.tvTipPerPerson);
-		t.setText(String.format("%.2f",  tipPerPersonF));
-
-		t = (TextView)findViewById(R.id.tvTotalPerPerson);
-		t.setText(String.format("%.2f",  totalPerPersonF));
+		for(int i = 1; i <= 25; i = i+1)
+		{
+			tvPercent.append(String.format("%d\n", i));
+			tvTipPerson.append(String.format("%.2f\n", (billAmtF * i / 100 / numPeople)));
+			tvBillPerson.append(String.format("%.2f\n", (billAmtF * (100+i) / 100 / numPeople)));
+			tvTipTotal.append(String.format("%.2f\n", (billAmtF * i / 100)));
+			tvBillTotal.append(String.format("%.2f\n", (billAmtF * (100+i) / 100)));
+		}
 	}
 	
 	public class GestureListener extends GestureDetector.SimpleOnGestureListener {
